@@ -1,0 +1,55 @@
+# SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+# Copyright © 2025 Intel Corporation
+
+lib_object = library(
+  'LLVMObject',
+  [
+    'Archive.cpp',
+    'ArchiveWriter.cpp',
+    'Binary.cpp',
+    'BuildID.cpp',
+    'COFFImportFile.cpp',
+    'COFFModuleDefinition.cpp',
+    'COFFObjectFile.cpp',
+    'Decompressor.cpp',
+    'DXContainer.cpp',
+    'ELF.cpp',
+    'ELFObjectFile.cpp',
+    'Error.cpp',
+    'GOFFObjectFile.cpp',
+    'FaultMapParser.cpp',
+    'IRObjectFile.cpp',
+    'IRSymtab.cpp',
+    'MachOObjectFile.cpp',
+    'MachOUniversal.cpp',
+    'Minidump.cpp',
+    'ModuleSymbolTable.cpp',
+    'Object.cpp',
+    'ObjectFile.cpp',
+    'OffloadBinary.cpp',
+    'RecordStreamer.cpp',
+    'RelocationResolver.cpp',
+    'SymbolicFile.cpp',
+    'SymbolSize.cpp',
+    'TapiFile.cpp',
+    'TapiUniversal.cpp',
+    'MachOUniversalWriter.cpp',
+    'WasmObjectFile.cpp',
+    'WindowsMachineFlag.cpp',
+    'WindowsResource.cpp',
+    'XCOFFObjectFile.cpp',
+    gen_intrinsics,
+    gen_vcs_revision_h,
+  ],
+  include_directories : '../../include/llvm/Object',
+  dependencies : [
+    component_bit_reader, component_core, component_mc, component_ir_reader,
+    component_binary_format, component_mc_parser, component_support,
+    component_target_parser, component_text_api,
+  ],
+  install : true,
+)
+
+component_object = declare_dependency(
+  link_with : lib_object,
+)

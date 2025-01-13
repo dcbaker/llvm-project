@@ -1,0 +1,125 @@
+# SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+# Copyright © 2025 Intel Corporation
+
+option(
+  'runtimes',
+  type : 'array',
+  value : ['libcxx', 'libcxxabi', 'libunwind'],
+  choices : [
+    'libcxx', 'libcxxabi', 'libunwind', 'pstl', 'libc', 'compiler-rt', 'openmp',
+    'llvm-libgcc', 'offload',
+  ],
+  description : 'Array of runtimes to build.',
+)
+
+option(
+  'targets',
+  type : 'array',
+  value : [
+    'AArch64', 'AMDGPU', 'ARM', 'AVR', 'BPF', 'Hexagon', 'Lanai', 'LoongArch',
+    'Mips', 'MSP430', 'NVPTX', 'PowerPC', 'RSICV', 'Sparc', 'SPIRV', 'SystemZ',
+    'VE', 'WebAssembly', 'X86', 'XCore', 'all',
+  ],
+  choices : [
+    'AArch64', 'AMDGPU', 'ARM', 'AVR', 'BPF', 'Hexagon', 'Lanai', 'LoongArch',
+    'Mips', 'MSP430', 'NVPTX', 'PowerPC', 'RSICV', 'Sparc', 'SPIRV', 'SystemZ',
+    'VE', 'WebAssembly', 'X86', 'XCore', 'all',
+  ],
+)
+
+option(
+  'experimental-targets',
+  type : 'array',
+  value : [],
+  choices : ['ARC', 'CSKY', 'DirectX', 'M68K', 'Xtensa'],
+)
+
+# TODO: libedit
+# TODO: libpfm
+
+option(
+  'zlib',
+  type : 'feature',
+  description : 'Use zlib for compression/decompression'
+)
+
+option(
+  'ffi',
+  type : 'feature',
+  value : 'disabled',
+  description : 'Use libffi to call external functions from the interpreter',
+)
+
+option(
+  'zstd',
+  type : 'feature',
+  description : 'Use zstd for compression/decompression'
+)
+
+option(
+  'libxml2',
+  type : 'feature',
+  description : 'Use libxml2',
+)
+
+option(
+  'curl',
+  type : 'feature',
+  value : 'disabled',
+  description : 'Use libcurl for the HTTP client',
+)
+
+option(
+  'httplib',
+  type : 'feature',
+  value : 'disabled',
+  description : 'Use cpp-httplib HTTP server for the library',
+)
+
+option(
+  'backtraces',
+  type : 'boolean',
+  value : true,
+  description : 'Enable embedding backtraces on crash',
+)
+
+option(
+  'crash-overrides',
+  type : 'boolean',
+  value : true,
+  description : 'Enable crash overrides',
+)
+
+# TODO: include_tools
+# TODO: build_tools
+# TODO: include utils
+# TODO: build utils
+# TODO: include runtime
+# TODO: build runtime
+# TODO: include examples
+# TODO: build examples
+# TODO: include tests
+# TODO: build tests
+# TODO: gtest?
+# TODO: include benchmarks
+# TODO: build benchmarks
+# TODO: include docs
+# TODO: doxygen
+# TODO: sphinx
+# TODO: ocaml docs
+# TODO: build bindings
+
+option(
+  'telemetry',
+  type : 'boolean',
+  value : false,
+  description : 'Enable building telemetry',
+)
+
+# TODO: doxygen subdir
+# TODO: ocaml subdir
+# TODO: compiler-rt external project
+# TODO: VERSION_PRINTER_SHOW_HOST_TARGET_INFO
+# TODO: VERSION_PRINTER_SHOW_BUILD_CONFIG
+# TODO: dylib-components?
+# TODO: link tools against dylib
